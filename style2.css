@@ -1,0 +1,50 @@
+/* Định dạng chung cho trang web (tùy chọn để hiển thị đẹp hơn) */
+body {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    font-family: Arial, sans-serif; /* Dùng font không chân cho dễ đọc */
+}
+
+/* Định dạng khung quảng cáo */
+.khung-quang-cao {
+    /* Tạo màu nền chuyển dần từ vàng mù tạt sáng sang tối */
+    background: linear-gradient(to bottom, #C9A227, #A8861B);
+    color: #FFFFFF;            /* Toàn bộ chữ trong khung màu trắng */
+    width: 700px;              /* Chiều rộng của khung */
+    padding: 30px;             /* Khoảng cách từ chữ tới mép khung */
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2); /* Thêm chút bóng đổ cho khung */
+}
+
+/* Định dạng tiêu đề */
+.tieu-de {
+    text-align: center;        /* Căn giữa */
+    font-style: italic;        /* In nghiêng theo hình mẫu */
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    /* Đổ bóng cho chữ: màu đen mờ, đổ xuống dưới và sang phải 2px */
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4); 
+}
+
+/* Định dạng ảnh minh họa (Quan trọng nhất) */
+.anh-minh-hoa {
+    float: right;              /* Đẩy ảnh sang bên phải, chữ sẽ dồn sang trái */
+    width: 260px;              /* Thu nhỏ kích thước ảnh */
+    border: 3px solid #FFFFFF; /* Viền trắng */
+    margin-left: 20px;         /* Tạo khoảng cách giữa ảnh và chữ bên trái */
+    margin-bottom: 10px;       /* Tạo khoảng cách với chữ bên dưới */
+}
+
+/* Định dạng các đoạn văn */
+.doan-van {
+    text-align: justify;       /* Căn đều hai bên mép */
+    line-height: 1.6;          /* Giãn dòng cho dễ đọc */
+    font-size: 15px;
+    margin-bottom: 15px;       /* Khoảng cách giữa các đoạn văn */
+}
+
+/* Lớp phụ trợ để ngắt hiệu ứng float của ảnh */
+.xoa-float {
+    clear: both;
+}
