@@ -1,0 +1,43 @@
+body{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-family: "Times New Roman", Times, serif;
+}
+.khung-bai{
+    background-color: #FFFDE7;
+    border: 1px solid #9E9E9E;
+    text-align:center;
+    width: 600px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.tieu-de{
+    color: #D40000;
+    background-color: #FFD9E6;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: 20px;
+}
+.kho-tho{
+    font-style:italic;
+    line-height: 1.8;
+    font-size: 18px;
+}
+.thu-nhat{
+    color:  #0033CC;
+}
+.thu-hai{
+    color:#D40000;
+}
+.thu-ba{
+    color:#0033CC
+}
+.duong-ke{
+    background-color: #0033CC;
+    height: 2px;
+    border: none;
+    width: 55%;
+    margin: 15px auto;
+}
