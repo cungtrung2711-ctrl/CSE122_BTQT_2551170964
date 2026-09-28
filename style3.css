@@ -1,0 +1,57 @@
+body{
+    background: linear-gradient(to bottom,  #7ec8e3 ,#0a5c8a  );
+    font-family: "Times New Roman", Times, serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    margin: 0;
+}
+.khung-trang{
+    background-color: #FFFFFF ;
+    width: 750px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0,2);
+
+}
+.tieu-de{
+    color: #0b3d5c;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.khoi-mo-dau{
+    background-color:#0b3d5c ;
+    color: #FFFFFF  ;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+.anh-minh-hoa{
+    float: right;
+    width: 280px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.doan-than{
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.doan-than::first-letter{
+    color:#0b3d5c  ;
+    font-size: 3.5em;
+    font-weight: bold;
+    float: left;
+    line-height: 0.8;
+    margin-left: 8px;
+    margin-top: 5px;
+}
+.xoa-float{
+    clear: both;
+}
