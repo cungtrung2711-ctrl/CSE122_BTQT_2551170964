@@ -1,0 +1,49 @@
+body{
+    font-family: "Times New Roman", Times, serif;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+}
+.khung-bai{
+    width: 750px;
+}
+.tieu-de-chinh{
+    color: #1565C0  ;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+.anh-thanh-pho{
+    width: 100%;
+    border-radius: 6px;
+    display: block;
+    margin-bottom: 20px;
+}
+.doan-van{
+    text-align: justify ;
+    line-height: 1.6;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.doan-van::first-letter{
+    color:  #C62828;
+    font-size: 3.5em;
+    font-weight: bold;
+    float: left;
+    line-height: 0.8;
+    margin-right: 8px;
+    margin-top: 5px;
+}
+.thanh-tieu-de-phu{
+    background-color:  #1565C0;
+    color: #FFFFFF  ;
+    text-align: center;
+    margin:20px 0;
+    clear: both;
+}
+.xoa-float{
+    clear: both;
+}
