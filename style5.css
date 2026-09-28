@@ -1,0 +1,57 @@
+body{
+    font-family: "Times New Roman",  Times, serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    margin: 0;
+}
+.khung-bai{
+    width: 800px;
+}
+.bo-cuc-hai-cot{
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+.cot-trai{
+    width: 250px;
+    border-radius: 8px;
+}
+.cot-phai{
+    flex: 1;
+}
+.tieu-de-cong-ty{
+    color: #C2185B;
+    text-align: right;
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+.tieu-de-muc{
+    background-color:#FFC0CB  ;
+    font-weight: bold;
+    display: inline-block;
+    padding: 5px 12px;
+    margin-bottom: 15px;
+}
+ul{
+    margin-top: 0;
+    margin-bottom: 25px;
+    line-height: 1.8;
+    font-size: 16px;
+}
+.danh-sach-vuong{
+    list-style-type: square;
+}
+.danh-sach-tron{
+    list-style-type: circle;
+}
+.dong-ban-quyen{
+    text-align: right;
+    margin-top: 40px;
+}
+.dong-ban-quyen a{
+    color:#0000EE  ;
+    text-decoration: underline;
+    font-weight: normal;
+}
