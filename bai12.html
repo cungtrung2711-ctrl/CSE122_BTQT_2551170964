@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 12 - In Lịch</title>
+    <style>
+        body{
+            background-image: url('Nen.gif');
+            font-family: "Times New Roman",serif;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
+        .khung-chinh{
+            background-color:  #FFFFFF;
+            width: 400px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .o-lich{
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding:20px;
+            margin-bottom: 20px;
+        }
+
+        .chu-do{ color: #C62828 ; font-weight: bold;}
+        .chu-xanh{color:#1565C0 ; font-size: 18px;}
+        .so-ngay{
+            font-size: 70px;
+            margin: -5px 0;
+        }
+        .loi-chao{
+            font-style: italic;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .form-nhap{
+            border: 1px solid #1565C0;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .nhom-nhap label{
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .nhom-nhap input{
+            width: 50px;
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .nut-in{
+            background-color: #546E7A;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            height: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div class="khung-chinh">
+        <div class="o-lich">
+            <div id="ketqua-nam" class="chu-do">2026</div>
+            <div id="ketqua-thang" class="chu-xanh">Tháng 12</div>
+            <div id="ketqua-ngay" class="chu-do so-ngay">24</div>
+            <div id="ketqua-thu" class="chu-xanh">Thứ năm</div>
+        </div>
+        <div id="ketqua-chao" class="chu-do loi-chao">Chào buổi sáng</div>
+        <div class="form-nhap">
+            <div class="nhom-nhap">
+                <label>Ngày</label>
+                <input type="number" id="nhap-ngay" value="24">
+            </div>
+            <div class="nhom-nhap">
+                <label>Tháng</label>
+                <input type="number" id="nhap-thang" value="12">
+            </div>
+            <div class="nhom-nhap">
+                <label>Năm</label>
+                <input type="number" id="nhap-nam" value="2026">
+            </div>
+            <button class="nut-in" id="btn-inlich">In lịch</button>
+        </div>
+    </div>
+    <script>
+        const mangThu = ["Chủ nhật", "Thứ hai","Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"];
+        document.getElementById("btn-inlich").addEventListener("click", function(){
+        let ngay = document.getElementById("nhap-ngay").value;
+        let thang = document.getElementById("nhap-thang").value;
+        let nam = document.getElementById("nhap-nam").value;
+        let ngayDuoChon = new Date(nam, thang, ngay );
+        let sothu = ngayDuoChon.getDay();
+        document.getElementById("ketqua-nam").innerText = nam;
+        document.getElementById("ketqua-thang").innerText = "Tháng " + (thang + 1 );
+        document.getElementById("ketqua-ngay").innerText = ngay;
+        document.getElementById("ketqua-thu").innerText = mangThu[soThu];
+
+        let gioHienTai = new Date().getHours();
+        let loiChao = "";
+        if( gioHienTai < 12){
+            loiChao = "Chào buổi sáng!";
+        }else if(gioHienTai < 18 ){
+            loiChao = "Chào buổi chiều!";
+        } else{
+            loiChao = "Chào buổi tối!";
+        }
+        document.getElementById("ketqua-chao").innerText = loiChao;
+        });
+
+    </script>
+</body>
+</html>
