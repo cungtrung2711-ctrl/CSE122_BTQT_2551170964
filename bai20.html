@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 20- Hiệu ứng ảnh với CSS Filter</title>
+    <style>
+        body{
+            background-color: #0f172a;
+            text-align: center;
+            font-family: Arial,  sans-serif;
+            padding: 50px;
+        }
+
+        .khung-anh{
+            background-color: #1c2226  ;
+            border-radius: 12px;
+            display: inline-block;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        #anh-hoa{
+            width: 300px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .chu-gold {
+            background: linear-gradient(to right, #DAA520, #FFF8DC, #DAA520);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-style: italic;
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .thanh-nut{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .btn{
+            background-color: #232b30 ;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btn.active{
+            background-color: #0d6efd ;
+        }
+        .fx-gray { filter: grayscale(1); }
+        .fx-xray { filter: grayscale(1) invert(1); }
+        .fx-invert { filter: invert(1); }
+        .fx-fliph { transform: scaleX(-1); }
+        .fx-flipv { transform: scaleY(-1); }
+        .fx-glow { filter: drop-shadow(0 0 15px #FFD700); }
+        .fx-shadow { filter: drop-shadow(5px 5px 5px #000); }
+        .fx-bold-shadow { filter: drop-shadow(10px 10px 0 #000); }
+        .fx-dropshadow { filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.8)); }
+        .fx-blur { filter: blur(3px); }
+        .fx-wave { filter: url(#svg-wave); }
+        .fx-alpha { opacity: 0.4; }
+        
+        /* Đã sửa lỗi cảnh báo tại đây */
+        .fx-mask { 
+            -webkit-mask-image: radial-gradient(circle, black 40%, transparent 80%);
+            mask-image: radial-gradient(circle, black 40%, transparent 80%);
+        }
+    </style>
+</head>
+<body>
+    <div class="khung-anh">
+        <img id="anh-hoa" class="fx-gray" src="hoahong.gif" alt="Hoa hồng">
+        <div class="chu-gold">Special For You</div>
+    </div>
+
+    <div class="thanh-nut">
+        <button class="btn active" onclick="doiHieuUng(this, 'fx-gray')">Gray</button>
+        <button class="btn" onclick="doiHieuUng(this, 'fx-xray')">Xray</button>
+        <button class="btn" onclick="doiHieuUng(this, 'fx-invert')">Invert</button>
+        <button class="btn" onclick="doiHieuUng(this, 'fx-fliph')">FlipH</button>
+        <button class="btn" onclick="doiHieuUng(this, 'fx-flipv')">FlipV</button>
+        <button class="btn" onclick="doiHieuUng(this, 'fx-glow')">Glow</button>
+        <button class="btn" onclick="doiHieuUng(this, 'fx-shadow')">Shadow</button>
+        <button class="btn" onclick="doiHieuUng(this, 'fx-bold-shadow')">Bold Shadow</button>
+        <button class="btn" onclick="doiHieuUng(this, 'fx-dropshadow')">DropShadow</button>
+        <button class="btn" onclick="doiHieuUng(this, 'fx-blur')">Blur</button>
+        <button class="btn" onclick="doiHieuUng(this, 'fx-wave')">Wave</button>
+        <button class="btn" onclick="doiHieuUng(this, 'fx-mask')">Mask</button>
+        <button class="btn" onclick="doiHieuUng(this, 'fx-alpha')">Alpha</button>
+    </div>
+
+    <svg width="0" height="0" style="position: absolute;">
+        <filter id="svg-wave">
+            <feTurbulence type="fractalNoise" baseFrequency="0.05" num0ctaves="1" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="15"/>
+        </filter>
+    </svg>
+
+    <script>
+        function doiHieuUng (nutBam, tenClass){
+            document.querySelectorAll('.btn').forEach(nut => nut.classList.remove('active'));
+            nutBam.classList.add('active');
+            document.getElementById('anh-hoa').className = tenClass;
+        }
+    </script>
+</body>
+</html>
