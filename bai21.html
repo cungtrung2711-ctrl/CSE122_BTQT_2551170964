@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 21 - Bố cục trang 4 vùng</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .khung-trang{
+            max-width: 1000px;
+            margin: 0;
+            background: #fff;
+            display: grid;
+            grid-template-columns: 200px 1fr 160px;
+            grid-template-areas: 
+            "header header header"
+            "menu content ads";
+            gap: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .banner{
+            grid-area: header;
+            background-color:#C62828  ;
+            background-image: url('Nen-banner.jpg');
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .banner img{ margin-right: 15px;}
+
+        .menu-doc{
+            grid-area: menu;
+            background: linear-gradient(to bottom, #C62828 , #8E0000);
+            color: #ffffff;
+            padding: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .menu-doc li{
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .noi-dung{
+            grid-area: content;
+            padding: 10px;
+        }
+
+        .noi-dung h2{
+            color: #C62828;
+            margin-top: 0;
+        }
+
+        .hop-vang{
+            background-color: #FFE082;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .hop-trang{
+            background-color: #FFFFFF;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .quang-cao{
+            grid-area: ads;
+            padding-top: 10px;
+            padding-right: 10px;
+        }
+
+        .quang-cao img{
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        @media(max-width: 768px){
+            .khung-trang{
+                grid-template-columns: 1fr;
+                grid-template-areas: 
+                "header"
+                "menu"
+                "content"
+                "ads";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="khung-trang">
+        
+        <!-- Vùng 1: Banner -->
+        <header class="banner">
+            <img src="LogoTT.gif" alt="Logo">
+            <h2 style="margin: 0;">Hệ thống bài tập Lập trình Web</h2>
+        </header>
+
+        <!-- Vùng 2: Menu dọc bên trái -->
+        <ul class="menu-doc">
+            <li>Ngôn ngữ HTML</li>
+            <li style="background: rgba(255,255,255,0.1);">Ngôn ngữ JavaScript</li> <!-- Làm nổi bật thẻ đang chọn -->
+            <li>Các đối tượng trong JavaScript</li>
+            <li>CSS và bố cục hiện đại</li>
+        </ul>
+
+        <!-- Vùng 3: Nội dung chính ở giữa -->
+        <main class="noi-dung">
+            <h2>Bài tập HTML cơ bản</h2>
+            
+            <div class="hop-vang">
+                • Đảo chuỗi &nbsp;&nbsp;&nbsp; • Phân tích chuỗi &nbsp;&nbsp;&nbsp; • Tìm và thay thế
+            </div>
+
+            <div class="hop-trang">
+                Thiết kế trang web có nội dung như sau:<br><br>
+                <strong>Trung Tâm Tin học – ĐH KHTN<br>
+                Chào mừng các bạn đến với ngôn ngữ HTML</strong>
+            </div>
+        </main>
+
+        <!-- Vùng 4: Cột quảng cáo bên phải -->
+        <aside class="quang-cao">
+            <img src="Qcao01.gif" alt="Quảng cáo 1">
+            <img src="Qcao02.gif" alt="Quảng cáo 2">
+        </aside>
+
+    </div>
+</body>
+</html>
