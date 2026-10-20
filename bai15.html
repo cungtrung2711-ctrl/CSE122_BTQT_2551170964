@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 15 - Máy tính đơn giản</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+            font-family: Arial,  sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .may-tinh{
+            background-color: #111827 ;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            width: 320px;
+        }
+
+        .man-hinh{
+            background-color: #022c22;
+            color: #4ade80;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .phep-tinh{ 
+            font-size: 18px;
+            min-height: 22px;
+            opacity: 0,8;
+        }
+
+        .ket-qua{
+            font-size: 45px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .ban-phim{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 12px;
+        }
+
+        button{
+            border: none;
+            padding: 15px;
+            font-size: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #25313f;
+            color: #e5e7eb ;
+        }
+
+        button:active{ opacity: 0.8;}
+
+        .nut-pt{
+            background-color: #0d6efd ;
+            color:#FFFFFF  ;
+        }
+        .nut-c{
+            background-color:  #dc2626 ;
+            color: #FFFFFF;
+        }
+        .nut-bang{
+            background-color: #16a34a;
+            color: #FFFFFF;
+        }
+
+        .nut-0{ grid-column: span 2;}
+    </style>
+</head>
+<body>
+    <div class="may-tinh">
+        <div class="man-hinh">
+            <div class="phep-tinh" id="hien-thi-phep-tinh"></div>
+            <div class="ket-qua" id="hien-thi-ket-qua">0</div>
+        </div>
+
+        <div class="ban-phim">
+            <button class="nut-c" onclick="xoaTatCa()">C</button>
+            <button class="nut-pt" onclick="nhapNgoac()">()</button>
+            <button class="nut-pt" onclick="nhap('%')">%</button>
+            <button class="nut-pt" onclick="nhap('/')">÷</button>
+
+            <button onclick="nhap('7')">7</button>
+            <button onclick="nhap('8')">8</button>
+            <button onclick="nhap('9')">9</button>
+            <button class="nut-pt" onclick="nhap('*')">x</button>
+
+            <button onclick="nhap('4')">4</button>
+            <button onclick="nhap('5')">5</button>
+            <button onclick="nhap('6')">6</button>
+            <button class="nut-pt" onclick="nhap('-')">-</button>
+
+            <button onclick="nhap('1')">1</button>
+            <button onclick="nhap('2')">2</button>
+            <button onclick="nhap('3')">3</button>
+            <button class="nut-pt" onclick="nhap('+')">+</button>
+
+            <button class="nut-0" onclick="nhap('0')">0</button>
+            <button onclick="nhap('.')">.</button>
+            <button class="nut-bang" onclick="tinhKetQua()">=</button>
+        </div>
+    </div>
+    <script>
+        let bieuThuc = "";
+        const uiPhepTinh = document.getElementById("hien-thi-phep-tinh");
+        const uiKetQua = document.getElementById("hien-thi-ket-qua");
+
+        function nhap(kyTu){
+            bieuThuc += kyTu;
+            capNhatManHinh();
+        }
+
+        function xoaTatCa(){
+            bieuThuc = "";
+            uiKetQua.innerText = "0";
+            capNhatManHinh();
+        }
+
+        function tinhKetQua(){
+            try{
+                let ketQua = eval(bieuThuc);
+                uiKetQua.innerText = ketQua;
+            }catch (error){
+                uiKetQua.innerText = "Lỗi"
+            }
+        }
+        function capNhatManHinh(){
+            let chuoiDep = bieuThuc.replace(/\*/g, 'x').replace(/\//g, '÷').replace(/\+/g,'+').replace(/-/g,'-');
+            uiPhepTinh.innerText = chuoiDep;
+        }
+    </script>
+</body>
+</html>
