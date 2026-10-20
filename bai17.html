@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 17 - Kiểm tra biểu mẫu</title>
+    <style>
+        body{
+            font-family: Arial,sans-serif;
+            background-color: #fdf5e6;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .khung-form{
+            background-color: #FFFFFF;
+            width: 450px;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #fed7aa;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        h2{
+            color: #c2410c ;
+            margin: 0 0 5px 0 ;
+        }
+
+        .mo-ta{
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .nhom-nhap{
+            margin-bottom: 15px;
+
+        }
+
+        label{
+            display: block;
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        input{
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input.loi{
+            border: 2px solid  #dc2626 ;
+            background-color: #fef2f2;
+        }
+
+        input.hop-le{
+            border: 2px solid  #16a34a ;
+
+        }
+
+        .thong-bao{
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .thong-bao.loi{
+            display: block;
+            color:  #dc2626;
+        }
+
+        .thong-bao.hop-le{
+            display: block;
+            color:#16a34a  ;
+        }
+        .nut-dang-ky{
+            width: 100%;
+            background-color: #c2410c;
+            color: #FFFFFF;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="khung-form">
+        <h2>Đăng ký tài khoản</h2>
+        <p class="mo-ta">Dữ liệu được kiểm tra bằng JavaScript trước khi gửi</p>\
+        <form id="form-dang-ky">
+            <div class="nhom-nhap">
+                <label>Họ và tên</label>
+                <input type="text" id="ho-ten">
+                <div class="thong-bao" id="tb-ho-ten"></div>
+            </div>
+
+            <div class="nhom-nhap">
+                <label>Email</label>
+                <input type="text" id="email">
+                <div class="thong-bao" id="tb-email"></div>
+            </div>
+            <div class="nhom-nhap">
+                <label>Mật khẩu</label>
+                <input type="password" id="mat-khau">
+                <div class="thong-bao" id="tb-mat-khau"></div>
+            </div>
+            <div class="nhom-nhap">
+                <label>Xác nhận mật khẩu</label>
+                <input type="password" id="xac-nhan">
+                <div class="thong-bao" id="tb-xac-nhan"></div>
+            </div>
+
+            <button type="submit" class="nut-dang-ky">Đăng ký</button>
+        </form>
+    </div>
+
+    <script>
+        const form =document.getElementById("form-dang-ky");
+        function hienThiTrangThai(id0, idTB, laLoi,loiNhan){
+            let oNhap = document.getElementById(id0);
+            let thongBao = document.getElementById(idTB);
+
+            if(laLoi){
+                oNhap.className = "loi";
+                thongBao.className = "thong-bao loi";
+                thongBao.innerText = "x" + loiNhan;
+            }else{
+                oNhap.className = "hop-le";
+                thongBao.className = "thong-bao hop-le";
+                thongBao.innerText = " v Hợp lệ";
+            }
+        }
+
+        form.addEventListener("submit", function(event)){
+            let coLoi = false;
+            let hoTen = document.getElementById("ho-ten").value.trim();
+            if (hoten === ""){
+                hienThiTrangThai("ho-ten", "tb-ho-ten", true , "Họ và tên không được để trống");
+                coLoi = true;
+            }else{
+                hienThiTrangThai("ho-ten", "tb-ho-ten", false , "");
+            }
+
+            let email = document.getElementById("email").value.trim();
+            let regexEmail = /^[^\s@] + @[^\s@]+\.[^s@]+$/;
+            if (!regexEmail.test(email)){
+                hienThiTrangThai("email", "tb-email" , true, "Email không hợp lệ (thiếu tên miền)");
+                coLoi =true;
+            }else{
+                hienThiTrangThai("email", "tb-email", false,"");
+            }
+            let matKhau = document.getElementById("mat-khau").value;
+            if(matKhau.length < 6 ){
+                hienThiTrangThai("mat-khau", "tb-mat-khau",true, "Mật khẩu phải có ít nhất 6 ký tự");
+                coLoi = true;
+            }else{
+                hienThiTrangThai("mat-khau", "tb-mat-khau", false, "");
+            }
+            let xacNhan = document.getElementById("xac-nhan").value;
+            if(xacNhan === "" || xacNhan !== matKhau){
+                hienThiTrangThai("xac-nhan", "tb-xac-nhan", true, "Mật khẩu xác nhận không khớp");
+                coLoi = true;
+            }else{
+                hienThiTrangThai("xac-nhan", "tb-xac-nhan",false, "");
+            }
+
+            if(coLoi){
+                event.preventDefault();
+            }else{
+                event.preventDefault();
+                alert("Đăng ký thành công");
+            }
+        }
+    </script>
+</body>
+</html>
