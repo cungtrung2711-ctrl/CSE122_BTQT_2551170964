@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 18 - Trang bài viết kèm danh sách</title>
+    <style>
+        body{
+            font-family: "Times New Roman", Times, serif;
+            background-color: #FDFDF6;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+            margin: 0;
+        }
+
+        .khung-bai{
+            width: 800px;
+            background-color: #FDF8F0;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    
+        }
+
+        .h1{
+            color:  #E65100;
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+
+        .phu-de{
+            color: #E65100 ;
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        .anh-hoa{
+            float: right;
+            border-radius: 8px;
+            margin-left: 20px;
+            margin-bottom: 10px;
+            width: 280px;
+        }
+
+        p{
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+        }
+
+        .doan-dau::first-letter{
+            color:#E65100  ;
+            font-size: 60px;
+            font-weight: bold;
+            float: left;
+            margin-right: 8px;
+            line-height: 0.8;
+            margin-top: 8px;
+        }
+
+        .xoa-float{clear: both;}
+
+        .khoi-huong-vi{
+            border: 1px solid #2E7D32;
+            background-color: #f4fbf4;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        .khoi-huong-vi h3{
+            color:  #2E7D32;
+            font-style: italic;
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .danh-sach{
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+            column-gap: 40px;
+            list-style-image: url('icon_list_c.gif');
+            padding-left: 25px;
+            margin: 0;
+        }
+
+        .danh-sach li{
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="khung-bai">
+        <h1>Bông điên điển</h1>
+        <p class="phu-de">Món ngon mùa nưới nổi</p>
+
+        <img class="anh-hoa" src="Diendien.jpg" alt="Bông điên điển">
+
+        <p class="doan-dau">
+            Mỗi năm, vào đầu mùa nước nổi, những cây điên điển bên bờ sông, bờ rạch lại xanh tươi trở lại, trổ đầy hoa vàng rực giữa vùng lũ Đồng bằng sông Cửu Long.
+        </p>
+        <p>
+            Trước đây, người dân nghèo dùng bông điên điển nấu cháo cầm cự qua tháng ngày khó khăn. Ngày nay, bông điên điển trở thành món ngon: làm dưa chỉ cần ngâm với giá sống trong nước muối vừa mặn, ba ngày sau là có đĩa dưa chua giòn chấm nước tương ớt.
+        </p>
+
+        <div class="xoa-float"></div>
+
+        <div class="khoi-huong-vi">
+            <h3>Hương vị miền Nam</h3>
+            <ul class="danh-sach">
+                <li>Bánh tráng Mỹ Lồng , bánh phồng Sơn Đốc</li>
+                <li>Dồi lươn tim nước cốt dừa</li>
+                <li>Bún mắm</li>
+                <li>Bún nước lèo Sóc Trăng</li>
+                <li>Nem lai Vung</li>
+                <li>Cốm dẹp</li>
+                <li>Bưởi Tân Triều</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
