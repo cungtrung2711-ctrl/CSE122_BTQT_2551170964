@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 13 - Đồng hồ số</title>
+    <style>
+        body{
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+            font-family: "Times New Roman", serif;
+        }
+
+        .khung-dong-ho{
+            background-color:#000000  ;
+            padding: 20px 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .khung-dong-ho img{
+            height: 52px;
+        }
+
+        .loi-chao{
+            background-color:  #FFFFFF ;
+            color:#c62828 ;
+            font-size: 48px;
+            padding: 20px 60px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="khung-dong-ho">
+        <img id="gio-chuc" src="00.gif">
+        <img id="gio-don-vi" src="00.gif">
+
+        <img src="haicham.gif">
+
+        <img id="phut-chuc" src="00.gif">
+        <img id="phut-donvi" src="00.gif">
+
+        <img src="haicham.gif">
+
+        <img id="giay-chuc" src="00.gif">
+        <img id="giay-donvi" src="00.gif">
+    </div>
+    <div id="text-chao" class="loi-chao">Chào buổi sáng</div>
+
+    <script>
+        function tachThanhHaiChuSo(so){
+            let chuoiSo = so < 10 ? "0" + so : so.toString();
+            return [chuoiSo.charAt(0), chuoiSo.charAt(1)];
+        }
+        function chayDongHo(){
+            let thoiGianHienTai = new Date();
+
+            let gio = thoiGianHienTai.getHours();
+            let phut = thoiGianHienTai.getMinutes();
+            let giay = thoiGianHienTai.getSeconds();
+
+            let mangGio = tachThanhHaiChuSo(gio);
+
+            document.getElementById("gio-chuc").src = "0" + mangGio[0] + ".gif";
+            document.getElementById("gio-donvi").src = "0" + mangGio[1] + ".gif";
+
+            let mangPhut = tachThanhHaiChuSo(phut);
+            document.getElementById("phut-chuc").src = "0" + mangPhut[0] + ".gif";
+            document.getElementById("phut-donvi").src = "0" + mangPhut[1] + ".gif";
+
+            let loiChao = "";
+            if ( gio < 12 ){
+                loiChao = "Chào buổi sáng"
+            } else if(gio < 18){
+                loiChao = "Chào buổi chiều"
+            } else{
+                loiChao = "Chào buổi tối";
+            }
+            document.getElementById("text-chao").innerText = loiChao;
+        }
+
+        setInterval(chayDongHo,1000);
+        chayDongHo();
+    </script>
+</body>
+</html>
