@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 16 - Danh sách việc cần làm</title>
+    <style>
+        body{
+            background-color: #f1f5f9;
+            font-family: Arial,sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .ung-dung{
+            background-color: #FFFFFF;
+            width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .tieu-de-app{
+            background-color: #6d28d9;
+            color: #FFFFFF;
+            padding: 25px 30px;
+        }
+        .tieu-de-app h2{ margin: 0 0 5px 0 ;}
+        .tieu-de-app p{ margin: 0; font-size: 14px; opacity: 0.8;}
+
+        .vung-nhap{
+            display: flex;
+            padding: 20px 30px;
+            gap: 10px;
+        }
+
+        .o-nhap{
+            flex:1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .nut-them{
+            background-color: #6d28d9  ;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .danh-sach{
+            list-style: none;
+            padding: 0 30px;
+            margin: 0;
+        }
+
+        .viec-lam{
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom:1px dashed #ede9fe ;
+        }
+
+        .o-danh-dau{
+            width: 20px;
+            height: 20px;
+            border: 2px solid #a78bfa;
+            border-radius: 4px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .ten-viec{
+            flex: 1;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .nut-xoa{
+            background-color: #fde2e2 ;
+            color:#b91c1c  ;
+            border: none;
+            padding: 6px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .viec-lam.da-xong .o-danh-dau{
+            background-color: #6d28d9;
+            border-color: #6d28d9 ;
+        }
+        .viec-lam.da-xong .ten-viec{
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .bo-dem{
+            padding: 20px 30px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="ung-dung">
+        <div class="tieu-de-app">
+            <h2>Danh sách việc cần làm</h2>
+            <p>Thêm việc mới, đánh dấu hoàn thành hoặc xóa - tất cả bằng JavScript</p>
+        </div>
+
+        <div class="vung-nhap">
+            <input type="text" id="nhap-viec" class="o-nhap" placeholder="Ví dụ: Hoàn thành bài tập...">
+            <button class="nut-them" onclick="themViecMoi()">Thêm</button>
+        </div>
+
+        <ul class="danh-sach" id="khung-danh-sach"></ul>
+
+        <div class="bo-dem">
+            Còn <span id="so-luong">0</span> việc chưa hoàn thành
+        </div>
+    </div>
+    <script>
+        const oNhapViec = document.getElementById("nhap-viec");
+        const khungDanhSach = document.getElementById("khung-danh-sach");
+        const theHienThiSoLuong = document.getElementById("so-luong");
+
+        let soViecChuaXong = 0;
+
+        function capNhatDem(){
+            theHienThiSoLuong.innerText = soViecChuaXong;
+        }
+
+        function themViecMoi(){
+            let tenViecMoi = oNhapViec.value.trim();
+            if( tenViecMoi === "") return;
+
+            let theViecLam = document.createElement("li");
+            theViecLam.className = "viec-lam";
+
+            khungDanhSach.appendChild(theViecLam);
+            soViecChuaXong++;
+            capNhatDem();
+            oNhapViec.value = "";
+        }
+        function doiTrangThai(oVuong){
+            let theVieLam = oVuong.parentElement;
+            theVieLam.classlist.toggle("da-xong");
+            if(theViecLam.classlist.contains("da-xong")){
+                soViecChuaXong--;
+            }else{
+                soViecChuaXong++;
+            }
+            capNhatDem();
+        }
+
+        function xoaViec(nutXoa){
+            let theViecLam = nutXoa.parentElement;
+
+            if( !theViecLam.classlist.contains("da-xong")){
+                soViecChuaXong--;
+                capNhatDem;
+            }
+            theViecLam.remove();
+        }
+    </script>
+</body>
+</html>
