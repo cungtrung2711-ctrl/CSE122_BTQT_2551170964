@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 28 - Carousel & Tabs (Bootstrap)</title>
+    
+    <!-- Nhúng CSS Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body { background-color: #f8f9fa; padding: 40px 15px; font-family: Arial, sans-serif; }
+        
+        .khung-ung-dung { max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; shadow: sm; }
+
+        /* Chỉnh cứng chiều cao của ảnh Slide là 340px[span_2](start_span)[span_2](end_span) */
+        .carousel-item img {
+            height: 340px;
+            object-fit: cover; 
+            border-radius: 8px; /* Bo góc nhẹ */
+        }
+
+        
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.4); /* Đen trong suốt 40%[span_6](start_span)[span_6](end_span) */
+            border-radius: 8px;
+            padding: 10px;
+            bottom: 20px;
+        }
+
+        /* Chỉnh màu cho thanh chọn Tab giống ảnh mẫu (màu xanh lam #0d6efd)[span_7](start_span)[span_7](end_span) */
+        .nav-pills .nav-link.active {
+            background-color: #0d6efd !important; /*[span_8](start_span)[span_8](end_span) */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="khung-ung-dung shadow-sm">
+        
+        <h3 class="text-center text-primary mb-4 fw-bold">Khám phá điểm đến</h3>
+
+        
+        <div id="slideThangCanh" class="carousel slide mb-5" data-bs-ride="carousel">
+            
+            <!-- Các gạch ngang nhỏ chỉ báo vị trí (Indicators)[span_11](start_span)[span_11](end_span) -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#slideThangCanh" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#slideThangCanh" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#slideThangCanh" data-bs-slide-to="2"></button>
+            </div>
+
+            
+            <div class="carousel-inner">
+                
+                
+                <div class="carousel-item active">
+                    <img src="1-vinh-ha-long.jpg" class="d-block w-100" alt="Vịnh Hạ Long">
+                    
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="fw-bold mb-1">Vịnh Hạ Long</h5>
+                        <p class="mb-0 small">Di sản thiên nhiên thế giới</p>
+                    </div>
+                </div>
+
+                <!-- Ảnh 2 -->
+                <div class="carousel-item">
+                    <img src="2-fansipan.jpg" class="d-block w-100" alt="Sapa">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="fw-bold mb-1">Thị trấn Sapa</h5>
+                        <p class="mb-0 small">Thành phố trong sương</p>
+                    </div>
+                </div>
+
+          
+                <div class="carousel-item">
+                    <img src="Anh/Bai28/3.jpg" class="d-block w-100" alt="Tràng An">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="fw-bold mb-1">Tràng An - Ninh Bình</h5>
+                        <p class="mb-0 small">Vịnh Hạ Long trên cạn</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nút Prev (Trái)[span_14](start_span)[span_14](end_span) -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#slideThangCanh" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <!-- Nút Next (Phải)[span_15](start_span)[span_15](end_span) -->
+            <button class="carousel-control-next" type="button" data-bs-target="#slideThangCanh" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+        <!-- ==========================================
+             2. MENU TABS (NAV PILLS)[span_16](start_span)[span_16](end_span)
+        =========================================== -->
+        <!-- nav-pills tạo menu dạng nút tròn, justify-content-center để căn giữa menu[span_17](start_span)[span_17](end_span) -->
+        <ul class="nav nav-pills justify-content-center mb-3" id="menuTab" role="tablist">
+            <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-gioi-thieu" type="button">Giới thiệu</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-lich-trinh" type="button">Lịch trình</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-chi-phi" type="button">Chi phí</button>
+            </li>
+        </ul>
+
+        
+        <div class="tab-content border rounded p-4 bg-white" id="noiDungTab">
+            
+            <!-- Nội dung 1 (Mở mặc định nhờ class show active) -->
+            <div class="tab-pane fade show active" id="tab-gioi-thieu">
+                <p class="mb-0">Tour 3 ngày 2 đêm khám phá các danh thắng miền Bắc, khởi hành hằng tuần.</p>
+            </div>
+            
+            <!-- Nội dung 2 -->
+            <div class="tab-pane fade" id="tab-lich-trinh">
+                <ul class="mb-0">
+                    <li>Ngày 1: Hà Nội - Ninh Bình</li>
+                    <li>Ngày 2: Ninh Bình - Hạ Long</li>
+                    <li>Ngày 3: Hạ Long - Sapa</li>
+                </ul>
+            </div>
+            
+            <!-- Nội dung 3 -->
+            <div class="tab-pane fade" id="tab-chi-phi">
+                <p class="mb-0 fw-bold text-danger">Giá trọn gói: 3.500.000 VNĐ / Người</p>
+                <span class="small text-muted">(Đã bao gồm xe đưa đón, khách sạn 3 sao và các bữa ăn chính).</span>
+            </div>
+            
+        </div> <!-- Hết Tab Content -->
+
+    </div> <!-- Hết khung ứng dụng -->
+
+    <!-- Nhúng JS Bundle của Bootstrap để Carousel tự chạy và Tab bấm được[span_20](start_span)[span_20](end_span) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
