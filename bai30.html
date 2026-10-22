@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 30 - Bảng điều khiển (Bootstrap)</title>
+    
+    <!-- Nhúng CSS Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #e9ecef; /* Nền xám nhạt toàn trang giống mẫu */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            overflow-x: hidden; /* Ngăn cuộn ngang */
+        }
+
+
+      
+        .sidebar {
+            width: 230px; 
+            background-color: #212529; /* Nền xám đen[span_3](start_span)[span_3](end_span) */
+            min-height: 100vh; /* Cao bằng 100% màn hình */
+            position: fixed; /* Ghim cố định bên trái */
+            top: 0; left: 0;
+            padding-top: 20px;
+        }
+
+        .sidebar h5 { color: white; padding: 0 20px; font-weight: bold; margin-bottom: 25px; }
+
+        .sidebar a {
+            color: #adb5bd; /* Màu chữ xám nhạt */
+            text-decoration: none;
+            display: block;
+            padding: 12px 20px;
+            margin: 5px 15px;
+            border-radius: 8px; /* Bo góc nút menu */
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover { color: white; background-color: rgba(255,255,255,0.1); }
+        
+        /* Nút menu đang chọn màu xanh lam[span_4](start_span)[span_4](end_span) */
+        .sidebar a.active {
+            background-color: #0d6efd; /*[span_5](start_span)[span_5](end_span) */
+            color: white;
+            font-weight: bold;
+        }
+
+        
+        .main-content {
+            margin-left: 230px; /* Đẩy nội dung sang phải nhường chỗ cho sidebar */
+            padding: 30px;
+        }
+
+        /* Chỉnh sửa chiều cao thanh tiến độ mảnh hơn */
+        .progress { height: 6px; }
+        
+        /* Thanh tiến độ trong danh sách chương cần dày hơn một chút */
+        .list-group .progress { height: 10px; margin-top: 8px; }
+    </style>
+</head>
+<body>
+
+    <!-- SIDEBAR BÊN TRÁI -->
+    <div class="sidebar shadow">
+        <h5>CSE.TLU Admin</h5>
+        <a href="#" class="active">Bảng điều khiển</a>
+        <a href="#">Bài tập</a>
+        <a href="#">Sinh viên</a>
+        <a href="#">Điểm số</a>
+    </div>
+
+    <!-- KHU VỰC NỘI DUNG BÊN PHẢI -->
+    <div class="main-content">
+        
+        <!-- Header phần nội dung -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4 class="fw-bold mb-0">Bảng điều khiển</h4>
+            <div>
+                <!-- Nút và badge trên góc phải -->
+                <span class="badge bg-warning text-dark me-2 py-2 px-3 rounded-pill">3 bài mới</span>
+                <button class="btn btn-primary btn-sm px-3">Xuất báo cáo</button>
+            </div>
+        </div>
+
+
+        <div class="row g-3 mb-4">
+            
+            <!-- Thẻ 1: Sinh viên -->
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm p-3">
+                    <p class="text-muted small mb-1">Sinh viên</p>
+                    <h3 class="fw-bold mb-3">128</h3>
+                    <!-- Thanh tiến độ màu xanh[span_8](start_span)[span_8](end_span) -->
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thẻ 2: Đã nộp -->
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm p-3">
+                    <p class="text-muted small mb-1">Đã nộp</p>
+                    <h3 class="fw-bold mb-3">96</h3>
+                    <!-- Thanh tiến độ màu xanh lá -->
+                    <div class="progress">
+                        <div class="progress-bar bg-success" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thẻ 3: Chưa nộp -->
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm p-3">
+                    <p class="text-muted small mb-1">Chưa nộp</p>
+                    <h3 class="fw-bold mb-3">32</h3>
+                    <!-- Thanh tiến độ màu đỏ[span_9](start_span)[span_9](end_span) -->
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" style="width: 25%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thẻ 4: Điểm TB -->
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm p-3">
+                    <p class="text-muted small mb-1">Điểm TB</p>
+                    <h3 class="fw-bold mb-3">7.8</h3>
+                    <!-- Thanh tiến độ màu vàng[span_10](start_span)[span_10](end_span) -->
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" style="width: 78%"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+      
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white border-bottom fw-bold py-3">
+                Tiến độ theo chương
+            </div>
+            
+            <!-- list-group tạo danh sách liền kề[span_12](start_span)[span_12](end_span) -->
+            <ul class="list-group list-group-flush">
+                
+                <!-- Dòng 1 -->
+                <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                    <span class="small">Chương 1 — HTML5</span>
+                    <!-- Nhãn hiển thị phần trăm[span_13](start_span)[span_13](end_span) -->
+                    <span class="badge bg-success rounded-pill">100%</span>
+                </li>
+
+                <!-- Dòng 2 -->
+                <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                    <span class="small">Chương 2 — JavaScript</span>
+                    <span class="badge bg-info text-dark rounded-pill">82%</span>
+                </li>
+
+                <!-- Dòng 3 -->
+                <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                    <span class="small">Chương 3 — CSS3</span>
+                    <span class="badge bg-info text-dark rounded-pill">74%</span>
+                </li>
+
+                <!-- Dòng 4 -->
+                <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                    <span class="small text-muted">Chương 4 — Bootstrap 5</span>
+                    <span class="badge bg-secondary rounded-pill">45%</span>
+                </li>
+
+            </ul>
+        </div>
+
+    </div> <!-- Hết phần nội dung chính -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
