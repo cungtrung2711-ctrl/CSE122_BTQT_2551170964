@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 26 - Form đăng ký với Bootstrap</title>
+    
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        
+        body {
+            background-color: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Chiều cao bằng 100% màn hình */
+        }
+        
+        .khung-form {
+            width: 100%;
+            max-width: 600px; /* Giới hạn chiều rộng thẻ form */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="khung-form">
+      
+        <div class="card rounded-3 shadow border-0">
+            
+        
+            <div class="card-header bg-success text-white text-center py-3 fs-5 fw-bold">
+                Đăng ký tham gia CLB Lập trình Web
+            </div>
+
+          
+            <div class="card-body p-4">
+                <form>
+                 
+                    <div class="row g-3">
+                        
+                        <!-- col-md-6 chia ô nhập thành 2 cột trên màn hình vừa trở lên[span_5](start_span)[span_5](end_span) -->
+                        <div class="col-md-6">
+                            <label class="form-label">Họ và tên</label>
+                            <!-- form-control là class bắt buộc để ô nhập đẹp chuẩn Bootstrap[span_6](start_span)[span_6](end_span) -->
+                            <input type="text" class="form-control" placeholder="Nguyễn Văn A" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Mã sinh viên</label>
+                            <input type="text" class="form-control" placeholder="22xxxxxx" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="sv@tlu.edu.vn" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Số điện thoại</label>
+                            <input type="tel" class="form-control" placeholder="09xxxxxxxx" required>
+                        </div>
+
+                        <!-- Phần Trình độ: Nằm ngang 1 hàng (col-12) -->
+                        <div class="col-12 mt-4">
+                            <label class="form-label d-block">Trình độ</label>
+                            
+                            <!-- form-check-inline giúp các nút tròn xếp nằm ngang nhau[span_7](start_span)[span_7](end_span) -->
+                            <div class="form-check form-check-inline">
+                                <!-- name="trinhDo" phải giống nhau để chỉ được chọn 1 trong 3 -->
+                                <input class="form-check-input" type="radio" name="trinhDo" id="rdCoBan" checked>
+                                <label class="form-check-label" for="rdCoBan">Cơ bản</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="trinhDo" id="rdKha">
+                                <label class="form-check-label" for="rdKha">Khá</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="trinhDo" id="rdTot">
+                                <label class="form-check-label" for="rdTot">Tốt</label>
+                            </div>
+                        </div>
+
+                        <!-- Phần Chọn lớp: Dùng form-select để tạo dropdown menu[span_8](start_span)[span_8](end_span) -->
+                        <div class="col-12">
+                            <label class="form-label">Chọn lớp</label>
+                            <select class="form-select" required>
+                                <option value="" disabled selected>Chọn lớp của bạn...</option>
+                                <option value="1">67CNTT1</option>
+                                <option value="2">67CNTT2</option>
+                                <option value="3">67CNTT3</option>
+                            </select>
+                        </div>
+
+                        <!-- Checkbox Cam kết: form-check mặc định của Bootstrap -->
+                        <div class="col-12 mt-3 mb-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="chkCamKet" required>
+                                <label class="form-check-label" for="chkCamKet">
+                                    Tôi cam kết tự làm bài và quay video OBS
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Cụm Nút bấm: d-flex căn sang phải (justify-content-end) -->
+                        <div class="col-12 d-flex justify-content-end gap-2 mt-3">
+                            <!-- type="reset" tự động xóa trắng form. Nút viền xám (btn-outline-secondary)[span_9](start_span)[span_9](end_span) -->
+                            <button type="reset" class="btn btn-outline-secondary px-4">Nhập lại</button>
+                            <!-- type="submit" tự động kiểm tra lỗi (required). Nút xanh (btn-success)[span_10](start_span)[span_10](end_span) -->
+                            <button type="submit" class="btn btn-success px-4">Đăng ký</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nhúng script Bootstrap để các chức năng nâng cao hoạt động mượt mà -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
