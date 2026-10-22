@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 23 - Thư viện ảnh hiệu ứng Hover</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 40px;
+            margin: 0;
+        }
+
+        .tieu-de { margin-bottom: 40px; }
+        .tieu-de h2 { font-size: 26px; margin-bottom: 8px; }
+        .tieu-de p { color: #666; font-size: 15px; margin-top: 0; }
+        .luoi-anh {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 16px; 
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .o-anh {
+            position: relative;
+            height: 220px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden; 
+            cursor: pointer;
+        }
+
+        
+        .o-anh img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            transition: transform 0.4s ease
+        }
+
+    
+        .lop-phu {
+            position: absolute;
+            bottom: 0; 
+            left: 0;
+            right: 0;
+            padding: 30px 15px 15px 15px;
+            background: linear-gradient(transparent, #000000); 
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+            font-size: 15px;
+            opacity: 0; 
+            transition: opacity 0.4s ease; 
+        }
+
+        
+        .o-anh:hover img {
+            transform: scale(1.12); 
+        }
+        .o-anh:hover .lop-phu {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tieu-de">
+        <h2>Thư viện ảnh — Hiệu ứng Hover</h2>
+        <p>Rê chuột lên ảnh để thấy hiệu ứng phóng to (zoom) và lớp phủ chú thích.</p>
+    </div>
+
+  
+    <div class="luoi-anh">
+        
+        <div class="o-anh">
+            <img src="Anh/Bai23/anh1.jpg" alt="Vịnh Hạ Long">
+            <div class="lop-phu">Vịnh Hạ Long</div>
+        </div>
+
+        <div class="o-anh">
+            <img src="1-hang-son-doong.jpg" alt="Hang Sơn Đoòng">
+            <div class="lop-phu">Hang Sơn Đoòng</div>
+        </div>
+
+        <div class="o-anh">
+            <img src="Anh/Bai23/anh3.jpg" alt="Thác Bản Giốc">
+            <div class="lop-phu">Thác Bản Giốc</div>
+        </div>
+
+        <div class="o-anh">
+            <img src="Anh/Bai23/anh4.jpg" alt="Fansipan">
+            <div class="lop-phu">Fansipan</div>
+        </div>
+
+        <div class="o-anh">
+            <img src="Anh/Bai23/anh5.jpg" alt="Đồng bằng sông Cửu Long">
+            <div class="lop-phu">Đồng bằng sông Cửu Long</div>
+        </div>
+
+        <div class="o-anh">
+            <img src="Anh/Bai23/anh6.jpg" alt="Động Phong Nha">
+            <div class="lop-phu">Động Phong Nha</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
