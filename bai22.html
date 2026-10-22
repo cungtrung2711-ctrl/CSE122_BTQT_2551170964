@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 22 - Chế độ Sáng / Tối</title>
+    <style>
+  
+        :root {
+            --nen-trang: #ffffff;
+            --chu-trang: #111827;
+            --nen-the: #f3f4f6;
+            --vien-the: #e5e7eb;
+            --chu-nhan: #2563eb;
+            --mau-nut: #ccc;
+        }
+
+        
+        body.toi {
+            --nen-trang: #0f172a;
+            --chu-trang: #e2e8f0; 
+            --nen-the: #1e293b;
+            --vien-the: #334155;
+            --chu-nhan: #60a5fa; 
+            --mau-nut: #2563eb;
+        }
+
+        body {
+            background-color: var(--nen-trang);
+            color: var(--chu-trang);
+            font-family: Arial, sans-serif;
+            display: flex; justify-content: center; padding: 50px; margin: 0;
+            transition: background-color 0.4s ease, color 0.4s ease; 
+        }
+
+        .khung-ung-dung { width: 700px; }
+
+        .phan-dau {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 20px; padding: 0 5px;
+        }
+
+    
+        .the-thong-tin {
+            background-color: var(--nen-the);
+            border: 1px solid var(--vien-the);
+            border-radius: 10px;
+            padding: 20px; margin-bottom: 15px;
+            transition: all 0.4s ease;
+        }
+        
+        .the-thong-tin h3 {
+            color: var(--chu-nhan); 
+            margin: 0 0 8px 0;
+        }
+
+        .the-thong-tin p { margin: 0; font-size: 14.5px; opacity: 0.9; }
+
+        
+        .nut-gat {
+            width: 50px; height: 26px;
+            background-color: var(--mau-nut);
+            border-radius: 15px;
+            position: relative; cursor: pointer;
+            transition: background-color 0.4s;
+        }
+
+        .vien-bi {
+            width: 20px; height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute; top: 3px; left: 3px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+    
+        body.toi .vien-bi {
+            transform: translateX(24px); 
+        }
+    </style>
+</head>
+<body class="toi">
+
+    <div class="khung-ung-dung">
+        
+        <div class="phan-dau">
+            <h2>Chế độ Tối / Sáng</h2>
+            <div class="nut-gat" onclick="chuyenCheDo()">
+                <div class="vien-bi"></div>
+            </div>
+        </div>
+
+        <div class="the-thong-tin">
+            <h3>Biến CSS (CSS Variables)</h3>
+            <p>Toàn bộ màu sắc được khai báo trong <code>:root</code> và ghi đè bằng class <code>.toi</code>.</p>
+        </div>
+
+        <div class="the-thong-tin">
+            <h3>Chuyển đổi bằng JavaScript</h3>
+            <p>Nút gạt thêm/bỏ class <code>.toi</code> trên <code>&lt;body&gt;</code> — mọi thành phần tự đổi màu.</p>
+        </div>
+
+        <div class="the-thong-tin">
+            <h3>Chuyển màu mượt</h3>
+            <p>Dùng <code>transition</code> để màu nền và chữ chuyển dần, không bị giật.</p>
+        </div>
+
+        <p style="font-size: 13px; opacity: 0.7; padding-left: 5px;" id="dong-trang-thai">
+            Đây là giao diện ở chế độ TỐI (đang bật).
+        </p>
+
+    </div>
+
+    <script>
+        function chuyenCheDo() {
+          
+            document.body.classList.toggle('toi');
+            let trangThai = document.getElementById('dong-trang-thai');
+            if (document.body.classList.contains('toi')) {
+                trangThai.innerText = "Đây là giao diện ở chế độ TỐI (đang bật).";
+            } else {
+                trangThai.innerText = "Đây là giao diện ở chế độ SÁNG (đã tắt).";
+            }
+        }
+    </script>
+
+</body>
+</html>
